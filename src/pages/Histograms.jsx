@@ -14,8 +14,9 @@ function Histograms() {
                 {sleepData.map((item, index) => (
                     <div key={index} className={styles.histogram_item}>
                         <HistogramBar value={item.durationInMinutes} />
-                        <div>
-                            {/* {new Date(item.start).toLocaleDateString()} */}
+                        <div className={styles.histogram_item_tooltip}>
+                            {new Date(item.start).toLocaleDateString()} <br />
+                            <i>{item.duration}</i>
                         </div>
                     </div>
                 ))}

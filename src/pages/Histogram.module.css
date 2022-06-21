@@ -11,6 +11,7 @@
 }
 
 .histogram_item {
+    position: relative;
     height: 100%;
     display: flex;
     flex-direction: column;
@@ -19,7 +20,20 @@
 }
 
 .histogram_item:hover {
-    background-color: #eee;
+    background-color: #cee;
+}
+
+.histogram_item_tooltip {
+    display: none;
+    position: absolute;
+    background-color: #000;
+    color: #fff;
+    padding: 0.5rem 0.5rem;
+    z-index: 1;
+}
+
+.histogram_item:hover .histogram_item_tooltip {
+    display: block;
 }
 
 .histogram_container {
