@@ -18,12 +18,6 @@ export function getAllData() {
     });
 }
 
-// function translateTime(duration) {
-//     const partsDuration = duration.split(":")
-//     const convertedDuration = parseInt(partsDuration[0]) * 60 + parseInt(partsDuration[1])
-//     return convertedDuration;
-// }
-
 
 /**
  * Parses a duration string to convert it's hours and minutes, and sums them up

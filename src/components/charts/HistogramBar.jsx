@@ -3,12 +3,12 @@ import React from 'react'
 
 export default function HistogramBar({ value }) {
 
-  const percentage = value / 100;
-  const barStyle = { height: `${percentage}%;`};
+  const percentage = (value/1440) *100;
+  const barStyle = { height: `${percentage}%`};
 
   return (
-    <div style={barStyle}>
-        
+    <div className={styles.histogram_bar} style={barStyle}>
     </div>
   )
 }
+ 
