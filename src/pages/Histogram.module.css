@@ -1,0 +1,13 @@
+.histogram {
+    padding: 1rem 1rem;
+    border: 1px solid #eee;
+}
+
+.histogram_container {
+    padding: 1rem 1rem;
+    margin: 1rem 0;
+}
+
+.H3 {
+    color: red;
+}
