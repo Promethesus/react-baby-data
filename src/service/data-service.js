@@ -49,23 +49,3 @@ export function getAllSleep() {
             }
         });
 }
-
-// class Sleep {
-
-// }
-
-
-// // msdn Generic Type
-// class Routine<T> {
-//     constructor(innerClass: T) {
-//         this.innerClass = innerClass;
-//     }
-//     go() {
-//         if (typeof this.innerClass === Sleep) {
-//             this.innerClass.rest();
-//         }
-//     }
-// }
-
-
-// new Routine(class Sleep {});

@@ -13,7 +13,8 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "group-by-date": "node ./scripts/group-by-date.mjs",
+    "normalize-data": "node ./scripts/normalize-data.mjs",
+    "group-by-date": "npm run normalize-data && node ./scripts/group-by-date.mjs",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "eject": "react-scripts eject"
