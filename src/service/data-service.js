@@ -1,21 +1,16 @@
-import data from "../data/data.json"
+/** @typedef {import("../types/index").BabyData} */
+
+/** @type {Map<string, BabyData[]>} */
+import data from "../data/grouped-by-date.json"
 
 export function getAllData() {
+    const allItems = [];
 
-    return data.map( item => {
+    for (let values in Object.values(data)) {
+        allItems.push(...values);
+    }
 
-        return {
-            /** @type {"sleep"|"feed"} */
-            type: item.Type.toLowerCase(),
-            start: item.Start,
-            duration: item.Duration,
-            end: item.End,
-            startLocation: item["Start Location"],
-            endConditions: item["End Conditions"],
-            startConditions: item["Start Conditions"],
-            notes: item.Note?.toLowerCase()
-        };
-    });
+    return data;
 }
 
 
@@ -24,28 +19,12 @@ export function getAllData() {
  * @param {string} duration
  * @returns {Number} The sum of hours converted to minutes
  */
-function parseDurationToMinutes(duration) {
 
-    const [hours, minutes] = duration
-        .split(":")
-        .map( part => parseInt(part, 10));
-
-    return (hours * 60) + minutes;
-}
 
 export function getAllSleep() {
-    
-    return getAllData()
-        .filter( item =>  item.type === "sleep" )
-        .map( item => {
+    return getAllData().filter( item =>  item.type === "sleep" );
+}
 
-            // calculate duration in minutes
-            const durationInMinutes = parseDurationToMinutes(item.duration);
-
-            return {
-                ...item,
-                durationInMinutes,
-
-            }
-        });
+export function getAllByDate(){ 
+    return data
 }
