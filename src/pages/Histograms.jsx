@@ -1,27 +1,16 @@
 import React from 'react'
-import styles from "./Histogram.module.css";
-import { getAllSleep } from '../service/data-service'
-import HistogramBar from "../components/charts/HistogramBar"
+import { getAllSleep } from '../service/data-service';
+import Histogram from "../components/charts/Histogram";
+
+// set up state with key value pairs for title and 
+// data being the different "views" of data 
 
 function Histograms() {
 
     const sleepData = getAllSleep();
 
     return (
-        <div className={styles.histogram_container}>
-            <h3 className={styles.H3}>Sleep hi</h3>
-            <div className={styles.histogram}>
-                {sleepData.map((item, index) => (
-                    <div key={index} className={styles.histogram_item}>
-                        <HistogramBar value={item.durationInMinutes} />
-                        <div className={styles.histogram_item_tooltip}>
-                            {new Date(item.startDate).toLocaleDateString()} <br />
-                            <i>{item.duration}</i>
-                        </div>
-                    </div>
-                ))}
-            </div>
-        </div>
+        <Histogram title={"All Data"} data={sleepData} />
     );
 }
 
