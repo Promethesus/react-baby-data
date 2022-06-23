@@ -6,11 +6,11 @@ import data from "../data/grouped-by-date.json"
 export function getAllData() {
     const allItems = [];
 
-    for (let values in Object.values(data)) {
+    for (let values of Object.values(data)) {
         allItems.push(...values);
     }
 
-    return data;
+    return allItems;
 }
 
 

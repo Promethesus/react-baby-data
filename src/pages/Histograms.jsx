@@ -3,10 +3,10 @@ import styles from "./Histogram.module.css";
 import { getAllSleep } from '../service/data-service'
 import HistogramBar from "../components/charts/HistogramBar"
 
-
 function Histograms() {
 
     const sleepData = getAllSleep();
+
     return (
         <div className={styles.histogram_container}>
             <h3 className={styles.H3}>Sleep hi</h3>
@@ -15,7 +15,7 @@ function Histograms() {
                     <div key={index} className={styles.histogram_item}>
                         <HistogramBar value={item.durationInMinutes} />
                         <div className={styles.histogram_item_tooltip}>
-                            {new Date(item.start).toLocaleDateString()} <br />
+                            {new Date(item.startDate).toLocaleDateString()} <br />
                             <i>{item.duration}</i>
                         </div>
                     </div>

@@ -18,8 +18,8 @@ writeFileSync('./src/data/normalized-data.json', JSON.stringify(normalizedData, 
 function normalizeData(jsonData) {
 
     return jsonData.map(item => {
-        const [startDate, startTime] = item.Start.split(" ");
-        const [endDate, endTime] = item.End.split(" ");
+        const [startDate, startTime] = item.Start.split(" ").map(replaceEmptyStringWithNull);
+        const [endDate, endTime] = item.End.split(" ").map(replaceEmptyStringWithNull);
         const durationInMinutes = parseDurationToMinutes(item.Duration)
 
         return {
@@ -28,12 +28,12 @@ function normalizeData(jsonData) {
             startTime,
             endDate,
             endTime,
-            duration: item.Duration,
-            durationInMinutes,
-            startLocation: item["Start Location"],
-            endConditions: item["End Conditions"],
-            startConditions: item["Start Conditions"],
-            notes: item.Notes.toLowerCase()
+            duration: replaceEmptyStringWithNull(item.Duration),
+            durationInMinutes: isNaN(durationInMinutes) ? null : durationInMinutes,
+            startLocation: replaceEmptyStringWithNull(item["Start Location"]),
+            endConditions: replaceEmptyStringWithNull(item["End Conditions"]),
+            startConditions: replaceEmptyStringWithNull(item["Start Conditions"]),
+            notes: replaceEmptyStringWithNull(item.Notes.toLowerCase()),
         };
     });
 } 
@@ -45,4 +45,10 @@ function parseDurationToMinutes(duration) {
         .map( part => parseInt(part, 10));
 
     return (hours * 60) + minutes;
+}
+
+
+
+function replaceEmptyStringWithNull(value) {
+    return typeof value === "string" && value ? value : null;
 }
