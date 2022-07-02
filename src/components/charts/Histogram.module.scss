@@ -1,5 +1,9 @@
+@import "../../variables.scss";
+
+$histogram_item_size: 3px;
+
 .histogram {
-    padding: 1rem 1rem;
+    padding: 1px $histogram_item_size;
     border: 1px solid #eee;
     display: flex;
     height: 75vh;
@@ -17,10 +21,11 @@
     flex-direction: column;
     justify-content: flex-end;
     background-color: transparent;
+    border-left: 1px solid #f2f2f2;
 }
 
 .histogram_item:hover {
-    background-color: #cee;
+    background-color: $primary;
 }
 
 .histogram_item_tooltip {
@@ -41,6 +46,8 @@
     margin: 1rem 0;
 }
 
-.title {
-    padding: 1rem 1rem;
+.title,
+.child_container {
+    margin: 0 0;
+    margin-bottom: 1rem;
 }

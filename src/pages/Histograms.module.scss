@@ -1,0 +1,11 @@
+@import "../variables.scss";
+
+
+.dropDown{ 
+    font-size: 30px;
+    padding: 8px 12px;
+    color: $primary;
+    background-color: $light;
+    border: 1px solid;
+    border-radius: 5px;
+}
