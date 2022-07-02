@@ -28,3 +28,15 @@ export function getAllSleep() {
 export function getAllByDate(){ 
     return data
 }
+
+
+//when called filters feed data by breast vs bottle
+export function getAllFeedData(startLocation = undefined) {
+    return getAllData()
+        .filter( item =>  item.type === "feed" )
+        .filter( item =>  startLocation ? item.startLocation === startLocation : item );
+}
+
+
+
+
