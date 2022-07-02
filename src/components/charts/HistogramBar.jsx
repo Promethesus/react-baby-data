@@ -1,4 +1,4 @@
-import styles from "./HistogramBar.module.css"
+import styles from "./HistogramBar.module.scss"
 import React from 'react'
 
 export default function HistogramBar({ value }) {

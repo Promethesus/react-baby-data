@@ -1,10 +1,15 @@
-import styles from "./Histogram.module.css";
+import styles from "./Histogram.module.scss";
 import HistogramBar from "./HistogramBar";
 
-export default function Histogram({ title, data, }) {
+export default function Histogram({ title, data, children }) {
+
     return (
         <div className={styles.histogram_container}>
             <h3 className={styles.title}>{title}</h3>
+
+            <div className={styles.child_container}>
+                {children}
+            </div>
 
             <div className={styles.histogram}>
                 {data.map((item, index) => (
