@@ -1,19 +1,17 @@
 import React, { useState } from 'react'
-import { getAllSleep, getAllByDate } from '../service/data-service';
+import { getAllSleep, getAllByDate, getAllFeedData } from '../service/data-service';
 import Histogram from "../components/charts/Histogram";
 import styles from "./Histograms.module.scss"
 
-// set up state with key value pairs for title and 
-// data being the different "views" of data 
 
 const sleepSelections = {
     "Sleep Data": () => getAllSleep(),
     "none": () => []
-
 };
+
 const feedSelections = {
-    "Breast Feeding Data": () => getAllSleep(),
-    "Bottle Feeding Data": () => getAllSleep(),
+    "Breast Feeding Data": () => getAllFeedData("breast"),
+    "Bottle Feeding Data": () => getAllFeedData("bottle"),
 
 };
 
